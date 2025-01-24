@@ -32,10 +32,31 @@ const routes = [
     meta: {title: '各种输入框组件', auth: true},
     component: () => import('@/src/views/Input.vue')
   },
+  {
+    path: '/login',
+    name: 'login',
+    meta: {title: '登录窗口', auth: true},
+    component: () => import('@/src/views/Login.vue')
+  },
 ]
 
 const router = new VueRouter({
-  routes
+  mode: 'history',
+  routes:routes
 })
+
+// 挂在路由导航守卫
+router.beforeEach((to, from, next) => {
+  // to 将要访问的路径
+  // from 代表从哪个路径跳转而来
+  // 访问登录页面 直接放行
+  if (to.path === '/login') return next()
+  const tokenStr = window.localStorage.getItem('token')
+  // 没有token， 强制转到login页面
+  if (!tokenStr) return next('/login')
+  next()
+})
+
+
 
 export default router

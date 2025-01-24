@@ -15,6 +15,10 @@
                 <i class="el-icon-location"></i>
                 <span slot="title">输入框</span>
             </el-menu-item>
+            <el-menu-item index="4">
+                <i class="el-icon-location"></i>
+                <span slot="title">登录窗口</span>
+            </el-menu-item>
         </el-menu>
     </div>
 </template>
@@ -73,6 +77,10 @@ export default {
                 this.$router.push({
                     path: '/input',
                 })
+            }else if (key == '4') {
+                this.$router.push({
+                    path: '/login',
+                })
             }
         }
     },
@@ -82,7 +90,7 @@ export default {
 <style scoped lang="scss">
 .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
-    min-height: 400px;
+    height: 100%;
 }
 
 .left-menu {

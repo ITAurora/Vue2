@@ -8,6 +8,8 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.use(ElementUI);
 
+import Utils from '../../utils/request';
+Vue.prototype.utils=Utils;
 
 import lodash from 'lodash'
 Vue.prototype.$lodash = lodash

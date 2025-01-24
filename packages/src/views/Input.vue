@@ -1,7 +1,7 @@
 <!-- 各种输入框组件  -->
 <template>
     <div class='inputs'>
-        input
+        <el-button type="primary" size="small" @click="check">验证token</el-button>
     </div>
 </template>
 
@@ -32,14 +32,32 @@ export default {
 
     },
     methods: {
-
+        check() {
+            const tokenStr = window.sessionStorage.getItem('token')
+            this.utils.post('api/src//loginCheck', { token: tokenStr }).then((data) => {
+                console.log(data);
+                this.$message.success(data.data.msg);
+                this.$router.push({
+                    path: '/input',
+                })
+            }
+            ).catch((err) => {
+                console.log(err);
+                this.$message.error(err.message);
+            })
+        }
     },
 };
 </script>
 
 <style scoped lang="scss">
-.inputs{
+.inputs {
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
-    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
 }
 </style>
