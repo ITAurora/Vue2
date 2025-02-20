@@ -2,6 +2,7 @@
 <template>
     <div class='inputs'>
         <el-button type="primary" size="small" @click="check">验证token</el-button>
+        <el-button type="primary" size="small" @click="delectToken">删除token</el-button>
     </div>
 </template>
 
@@ -33,7 +34,7 @@ export default {
     },
     methods: {
         check() {
-            const tokenStr = window.sessionStorage.getItem('token')
+            const tokenStr = localStorage.getItem('token')
             this.utils.post('api/src//loginCheck', { token: tokenStr }).then((data) => {
                 console.log(data);
                 this.$message.success(data.data.msg);
@@ -45,6 +46,10 @@ export default {
                 console.log(err);
                 this.$message.error(err.message);
             })
+        },
+        delectToken() {
+            localStorage.setItem('token', '')
+            location.reload();
         }
     },
 };
