@@ -1,10 +1,16 @@
 <template>
   <div id="app">
-    <header-info></header-info>
-    <div class="page">
-      <left-menu></left-menu>
-      <router-view class="app-page"></router-view>
-    </div>
+    
+    <template v-if="$route.path === '/login'">
+      <router-view></router-view>
+    </template>
+    <template v-else>
+      <header-info></header-info>
+      <div class="page">
+        <left-menu></left-menu>
+        <router-view class="app-page"></router-view>
+      </div>
+    </template>
   </div>
 </template>
 <script>
@@ -32,6 +38,7 @@ body {
 .page {
   display: flex;
   flex: 1;
+
   .app-page {
     background-color: white;
   }

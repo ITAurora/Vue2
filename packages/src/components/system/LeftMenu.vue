@@ -13,11 +13,15 @@
             </el-menu-item>
             <el-menu-item index="3">
                 <i class="el-icon-location"></i>
-                <span slot="title">输入框</span>
+                <span slot="title">验证token</span>
             </el-menu-item>
             <el-menu-item index="4">
                 <i class="el-icon-location"></i>
                 <span slot="title">登录窗口</span>
+            </el-menu-item>
+            <el-menu-item index="5">
+                <i class="el-icon-location"></i>
+                <span slot="title">异步弹框</span>
             </el-menu-item>
         </el-menu>
     </div>

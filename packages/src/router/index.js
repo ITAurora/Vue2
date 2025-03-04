@@ -46,16 +46,16 @@ const router = new VueRouter({
 })
 
 // 挂在路由导航守卫
-router.beforeEach((to, from, next) => {
-  // to 将要访问的路径
-  // from 代表从哪个路径跳转而来
-  // 访问登录页面 直接放行
-  if (to.path === '/login') return next()
-  const tokenStr = window.localStorage.getItem('token')
-  // 没有token， 强制转到login页面
-  if (!tokenStr) return next('/login')
-  next()
-})
+// router.beforeEach((to, from, next) => {
+//   // to 将要访问的路径
+//   // from 代表从哪个路径跳转而来
+//   // 访问登录页面 直接放行
+//   if (to.path === '/login') return next()
+//   const tokenStr = window.localStorage.getItem('token')
+//   // 没有token， 强制转到login页面
+//   if (!tokenStr) return next('/login')
+//   next()
+// })
 
 
 

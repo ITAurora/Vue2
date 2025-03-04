@@ -89,7 +89,7 @@ export default {
     height: 300px;
     width: 600px;
     border-radius: 20px;
-    box-shadow: 1px 1px 1px rgba(66, 66, 75, 0.2);
+    box-shadow: 1px 1px 10px rgba(66, 66, 75, 0.2);
 
     .img {
         text-align: center;
